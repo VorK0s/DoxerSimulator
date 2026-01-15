@@ -1,0 +1,39 @@
+.chat-item {
+    max-height: 100px;
+    padding: 5px 10px;
+}
+
+.chat-item-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.chat-item-content .chat-ico {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.chat-item-content-text {
+    margin-left: 15px;
+}
+
+.chat-item-content-text h2, p{
+    margin: 0;
+    padding: 0;
+}
+
+.chat-title {
+    color: var(--text-chat-item-cl);
+    font-size: 24px;
+}
+
+.chat-descrip {
+    color: var(--text-chat-item-descrip-cl);
+    font-size: 14px;
+}
+
+.chat-item:hover {
+    cursor: pointer;
+    background: var(--chat-item-hover-cl);
+}

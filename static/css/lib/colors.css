@@ -1,9 +1,12 @@
 :root {
     --background-cl: #0c0c0c;
     --chat-list-cl: #1f1f1f;
+    --chat-item-hover-cl: #3f3f3f;
     --white-cl: #ffffff;
     --white-30-cl: #ffffff23;
 
     /* colors text */
     --text-non-chat: #ffffff;
+    --text-chat-item-cl: #dbdbdb;
+    --text-chat-item-descrip-cl: #a8a8a8;
 }
