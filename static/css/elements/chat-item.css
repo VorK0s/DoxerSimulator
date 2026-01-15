@@ -1,6 +1,7 @@
 .chat-item {
     max-height: 100px;
     padding: 5px 10px;
+    user-select: none;
 }
 
 .chat-item-content {
@@ -36,4 +37,5 @@
 .chat-item:hover {
     cursor: pointer;
     background: var(--chat-item-hover-cl);
+    
 }
