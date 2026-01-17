@@ -36,6 +36,9 @@
 
 .chat-item:hover {
     cursor: pointer;
-    background: var(--chat-item-hover-cl);
-    
+    background: var(--chat-item-hover-cl);   
+}
+
+.chat-item.active {
+    background: var(--default-cl);
 }

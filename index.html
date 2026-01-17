@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/static/css/global.css">
-        <link rel="stylesheet" href="/static/css/elements/chat-item.css">
+        <link rel="stylesheet" href="/static/css/elements/chat-elements/chat-item.css">
+        <link rel="stylesheet" href="/static/css/elements/chat-elements/chat-overlay.css">
+        <link rel="stylesheet" href="/static/css/elements/chat-elements/chat-elements.css">
         <link rel="stylesheet" href="/static/css/lib/colors.css">
         <title>Doxer Simulator</title>
     </head>
@@ -18,7 +20,7 @@
                     <div class="chat-item-content">
                         <img src="static/img/test-chat-ico.png" alt="тестовая иконка чата" class="chat-ico">
                         <div class="chat-item-content-text">
-                            <h2 class="chat-title">test chat title</h2>
+                            <h2 class="chat-title">пидор ебаный</h2>
                             <p class="chat-descrip">test chat description</p>
                         </div>
                     </div>
@@ -28,7 +30,32 @@
                 <div class="not-in-chat">
                     <p><strong>мб уже выберешь чат?</strong></p>
                 </div>
+                <div class="in-chat hide" id="hide">
+                    <div class="top-bar">
+                        <div class="top-bar-content">
+                            <h2 class="top-bar-chat-title">test penis popa</h2>
+                            <p class="top-bar-status-online">online now</p>
+                        </div>
+                    </div>
+                    <div class="chat-content">
+                        <div class="chat-dialog">
+
+                        </div>
+                        <div class="side-bar">
+                        </div>
+                    </div>
+                    <div class="bot-bar">
+                        <div class="bot-bar-content">
+                            <div class="btn-media-chat-add">
+                                <img src="static/img/test-chat-ico.png" alt="добавить вложение" class="btn-media-chat-add-img">
+                            </div>
+                            <input type="text" class="chat-input" readonly placeholder="Сообщение...">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
+    <script src="static/js/chat/chatOpen.js"></script>
+    <script src="static/js/chat/chatDetails.js"></script>
 </html>

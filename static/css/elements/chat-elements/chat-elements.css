@@ -1,0 +1,45 @@
+.top-bar-content {
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+}
+
+.top-bar-content:hover {
+    cursor: pointer;
+
+}
+
+.top-bar-chat-title {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.top-bar-status-online {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: var(--text-chat-item-descrip-cl);
+}
+
+.bot-bar-content {
+    display: flex;
+    align-items: center;
+}
+
+.btn-media-chat-add-img {
+    width: 35px;
+    padding: 5px 10px;
+}
+
+.btn-media-chat-add-img:hover {
+    cursor: pointer;
+}
+
+.chat-input {
+    height: 25px;
+    border: none;
+    outline: 0;
+    background: var(--chat-list-cl);
+    color: var(--text-chat-item-descrip-cl);
+}

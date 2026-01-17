@@ -1,4 +1,8 @@
 :root {
+    /* other */
+    --black-cl: #000000;
+
+
     --background-cl: #0c0c0c;
     --chat-list-cl: #1f1f1f;
     --chat-item-hover-cl: #3f3f3f;
@@ -9,4 +13,7 @@
     --text-non-chat: #ffffff;
     --text-chat-item-cl: #dbdbdb;
     --text-chat-item-descrip-cl: #a8a8a8;
+
+    /* themes */
+    --default-cl: #5c025f;
 }

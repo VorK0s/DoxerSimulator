@@ -1,0 +1,34 @@
+.in-chat {
+    display: grid;
+    grid-template-areas:
+        "top top"
+        "chat sidebar"
+        "bottom bottom";
+    grid-template-rows: 30px 1fr 50px;
+    grid-template-columns: 1fr;
+    height: 100vh;
+}
+
+.top-bar {  
+    height: 50px;
+    grid-area: top;
+    background: var(--chat-list-cl);
+    border-left: solid 1px var(--black-cl);
+}
+
+.top-bar:hover {
+    cursor: pointer;
+}
+
+.side-bar {
+    width: 250px;
+    grid-area: sidebar;
+    background: var(--chat-list-cl);
+
+}
+
+.bot-bar {
+    grid-area: bottom;
+    background: var(--chat-list-cl); 
+    border-left: solid 1px var(--black-cl);
+}
