@@ -8,8 +8,12 @@
     --chat-item-hover-cl: #3f3f3f;
     --white-cl: #ffffff;
     --white-30-cl: #ffffff23;
+    --side-bar-info: #2d2d2d;
+
+
 
     /* colors text */
+    --text-block-user: #a30101;
     --text-non-chat: #ffffff;
     --text-chat-item-cl: #dbdbdb;
     --text-chat-item-descrip-cl: #a8a8a8;
