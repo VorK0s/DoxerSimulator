@@ -82,6 +82,102 @@
 .side-bar-block-contact-btn {
     color: var(--text-block-user);
 }
+
+.side-bar-modal-contact {
+    background: var(--chat-list-cl);
+    max-height: 600px;
+    width: 350px;
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+
+.side-bar-modal-contact-title {
+    margin: 0; 
+    padding: 0;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.side-bar-modal-contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.side-bar-modal-contact-info-avatar {
+    width: 85px;
+    height: 85px;
+}
+
+.side-bar-modal-contact-info-text {
+    margin-top: -20px;
+}
+
+.side-bar-modal-contact-inputs {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.side-bar-input-box {
+    position: relative;
+    width: 100%;
+}
+
+.side-bar-input {
+    position: relative;
+    width: 100%;
+    background: var(--chat-list-cl);
+    border: none;
+    outline: none;
+    padding: 15px 10px;
+    border-radius: 4px;
+    color: var(--white-cl);
+    font-weight: 500;
+    font-size: 1em;
+    border-bottom: solid 2px var(--white-30-cl);
+    transition: 0.3s;
+}
+
+.side-bar-input-box label {
+    position: absolute;
+    left: 10px;
+    top: 50%; 
+    transform: translateY(-50%);
+    font-style: normal;
+    color: var(--white-30-cl);
+    transition: 0.3s;
+    pointer-events: none;
+    font-size: 1em;
+}
+
+
+.side-bar-input:focus ~ label,
+.side-bar-input:valid ~ label,
+.side-bar-input.filled ~ label {
+    top: 1px; 
+    transform: translateY(0); 
+    font-size: 0.7em;
+    color: var(--default-cl);
+}
+
+.side-bar-input:focus {
+    border-bottom: solid 2px var(--default-cl);
+    transition: 0.3s;
+}
+
+.side-bar-input.filled:not(:focus) ~ label {
+    color: var(--white-60-cl);
+}
+
+.side-bar-modal-contact-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 50px;
+    justify-content: flex-end;
+}
+
 .bot-bar-content {
     display: flex;
     align-items: center;
@@ -102,4 +198,18 @@
     outline: 0;
     background: var(--chat-list-cl);
     color: var(--text-chat-item-descrip-cl);
+}
+
+/* modal */
+
+.modal-btn {
+    padding: 5px 10px;
+    color: var(--default-cl);
+    border-radius: 5px;
+}
+
+.modal-btn:hover {
+    cursor: pointer;
+    background: var(--white-50-cl);
+    color: var(--default-cl);
 }

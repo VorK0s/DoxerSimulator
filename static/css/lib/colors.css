@@ -1,12 +1,14 @@
 :root {
     /* other */
     --black-cl: #000000;
+    --black-50-cl:#00000050;
 
 
     --background-cl: #0c0c0c;
     --chat-list-cl: #1f1f1f;
     --chat-item-hover-cl: #3f3f3f;
     --white-cl: #ffffff;
+    --white-50-cl: #ffffff1f;
     --white-30-cl: #ffffff23;
     --side-bar-info: #2d2d2d;
 
@@ -19,5 +21,5 @@
     --text-chat-item-descrip-cl: #a8a8a8;
 
     /* themes */
-    --default-cl: #5c025f;
+    --default-cl: #bf02c5;
 }
