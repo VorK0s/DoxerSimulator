@@ -18,8 +18,6 @@ const edit_contact_cancel = document.querySelector('.side-bar-modal-contact-btn-
 export const modal_done_btn = document.querySelector('.side-bar-modal-contact-btn-done');
 export let inModal = 0;
 
-const numbers = {};
-
 
 modal_done_btn.addEventListener("click", editContact);
 btn_chat.addEventListener("click", openChat);
@@ -34,6 +32,15 @@ export function closeModalContact() {
 function openModalContact() {
     inModal = 1;
     edit_contact_modal.removeAttribute('id', 'hide');
+    window.addEventListener('keydown', function(e) {
+        if (inModal == 1) {
+            if (e.key === 'Enter') {
+                console.log('выход через enter')
+                editContact()
+                closeModalContact();
+            }
+        }
+    })
 }
 
 export function openChat() {
@@ -54,6 +61,7 @@ window.addEventListener('keydown', function(e) {
     } else {
         if (e.key === 'Escape') {
             edit_contact_modal.setAttribute('id', 'hide');
+            console.log('выход через escape')
             inModal = 0;
         }
     }
@@ -61,13 +69,21 @@ window.addEventListener('keydown', function(e) {
 
 
 export function editContact() {
-    const name = input_side_bar_modal_contact ? input_side_bar_modal_contact.value : '';
+    const defaultName = 'Developer'
+    let name;
     const subname = input_side_bar_modal_contact_subname ? input_side_bar_modal_contact_subname.value : '';
     
+    if (input_side_bar_modal_contact.value.trim() === '') {
+        name = defaultName
+    } else {
+        name = input_side_bar_modal_contact.value;
+    }
+
     const combinedName = getCombinedName(name, subname);
 
     if (title_chat_item) {
         title_chat_item.textContent = combinedName;
+    
     }
     if (title_chat) {
         title_chat.textContent = combinedName;
@@ -78,7 +94,9 @@ export function editContact() {
     if (title_chat_side_bar) {
         title_chat_side_bar.textContent = combinedName;
     }
+
     edit_contact_modal.setAttribute('id', 'hide');
+
 }
 
 editContact();
