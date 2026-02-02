@@ -16,6 +16,7 @@
 
     /* colors text */
     --text-block-user: #a30101;
+    --text-block-user-light: #e40000;
     --text-non-chat: #ffffff;
     --text-chat-item-cl: #dbdbdb;
     --text-chat-item-descrip-cl: #a8a8a8;

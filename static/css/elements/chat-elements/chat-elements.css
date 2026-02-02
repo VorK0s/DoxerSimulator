@@ -83,14 +83,6 @@
     color: var(--text-block-user);
 }
 
-.side-bar-modal-contact {
-    background: var(--chat-list-cl);
-    max-height: 600px;
-    width: 350px;
-    padding: 15px 25px;
-    border-radius: 10px;
-}
-
 .side-bar-modal-contact-title {
     margin: 0; 
     padding: 0;
@@ -178,6 +170,24 @@
     justify-content: flex-end;
 }
 
+.side-bar-modal-contact-delete-title {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.side-bar-modal-contact-delete-avatar {
+    width: 70px;
+    height: 70px;
+}
+
+.side-bar-modal-contact-delete-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
 .bot-bar-content {
     display: flex;
     align-items: center;
@@ -202,9 +212,23 @@
 
 /* modal */
 
+.modal {
+    background: var(--chat-list-cl);
+    max-height: 600px;
+    width: 350px;
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+
 .modal-btn {
     padding: 5px 10px;
     color: var(--default-cl);
+    border-radius: 5px;
+}
+
+.modal-btn-red {
+    padding: 5px 10px;
+    color: var(--text-block-user);
     border-radius: 5px;
 }
 
@@ -212,4 +236,10 @@
     cursor: pointer;
     background: var(--white-50-cl);
     color: var(--default-cl);
+}
+
+.modal-btn-red:hover {
+    cursor: pointer;
+    background: var(--white-50-cl);
+    color: var(--text-block-user-light);
 }

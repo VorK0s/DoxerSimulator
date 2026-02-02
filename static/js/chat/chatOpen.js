@@ -16,31 +16,44 @@ const edit_contact_btn = document.querySelector('.side-bar-edit-contact-btn');
 export const edit_contact_modal = document.querySelector('.side-bar-modal-background-contact-edit');
 const edit_contact_cancel = document.querySelector('.side-bar-modal-contact-btn-cancel');
 export const modal_done_btn = document.querySelector('.side-bar-modal-contact-btn-done');
+const delete_contact_btn = document.querySelector('.side-bar-delete-contact-btn');
+const delete_contact_modal = document.querySelector('.side-bar-modal-background-contact-delete')
+const delete_contact_cancel = document.querySelector('.side-bar-modal-contact-delete-btn-cancel')
+const modal_delete_btn = document.querySelector('.side-bar-modal-contact-delete-btn-delete')
 export let inModal = 0;
+let modal = 0
+const defaultName = 'Developer'
 
 
 modal_done_btn.addEventListener("click", editContact);
 btn_chat.addEventListener("click", openChat);
-edit_contact_btn.addEventListener("click", openModalContact);
-edit_contact_cancel.addEventListener("click", closeModalContact);
+edit_contact_btn.addEventListener("click", modalManager);
+edit_contact_cancel.addEventListener("click", closeModal);
+delete_contact_btn.addEventListener("click", modalManager)
+delete_contact_cancel.addEventListener("click", closeModal)
+modal_delete_btn.addEventListener("click", deleteContact)
 
-export function closeModalContact() {
-    inModal = 0;
-    edit_contact_modal.setAttribute('id', 'hide');
+function modalManager() {
+    if (this === edit_contact_btn) {
+        inModal = 1;
+        modal = 1;
+        edit_contact_modal.removeAttribute('id', 'hide');
+
+    } else if (this === delete_contact_btn) {
+        inModal = 1;
+        modal = 2;
+        delete_contact_modal.removeAttribute('id', 'hide');
+
+    } else {
+        console.log("и как ты блять это открыл");
+    }
+    
 }
 
-function openModalContact() {
-    inModal = 1;
-    edit_contact_modal.removeAttribute('id', 'hide');
-    window.addEventListener('keydown', function(e) {
-        if (inModal == 1) {
-            if (e.key === 'Enter') {
-                console.log('выход через enter')
-                editContact()
-                closeModalContact();
-            }
-        }
-    })
+export function closeModal() {
+    inModal = 0;
+    edit_contact_modal.setAttribute('id', 'hide');
+    delete_contact_modal.setAttribute('id', 'hide');
 }
 
 export function openChat() {
@@ -61,19 +74,27 @@ window.addEventListener('keydown', function(e) {
     } else {
         if (e.key === 'Escape') {
             edit_contact_modal.setAttribute('id', 'hide');
+            delete_contact_modal.setAttribute('id', 'hide');
             console.log('выход через escape')
             inModal = 0;
         }
     }
+    if (inModal == 1 && modal == 1) {
+            if (e.key === 'Enter') {
+                console.log('выход через enter')
+                editContact()
+                closeModal();
+            }
+        }
 });
 
 
 export function editContact() {
-    const defaultName = 'Developer'
     let name;
     const subname = input_side_bar_modal_contact_subname ? input_side_bar_modal_contact_subname.value : '';
     
     if (input_side_bar_modal_contact.value.trim() === '') {
+        input_side_bar_modal_contact.value = defaultName;
         name = defaultName
     } else {
         name = input_side_bar_modal_contact.value;
@@ -97,6 +118,13 @@ export function editContact() {
 
     edit_contact_modal.setAttribute('id', 'hide');
 
+}
+
+export function deleteContact() {
+    input_side_bar_modal_contact.value = defaultName
+    input_side_bar_modal_contact_subname.value = ''
+    editContact();
+    closeModal();
 }
 
 editContact();
