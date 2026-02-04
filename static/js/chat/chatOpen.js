@@ -20,9 +20,18 @@ const delete_contact_btn = document.querySelector('.side-bar-delete-contact-btn'
 const delete_contact_modal = document.querySelector('.side-bar-modal-background-contact-delete')
 const delete_contact_cancel = document.querySelector('.side-bar-modal-contact-delete-btn-cancel')
 const modal_delete_btn = document.querySelector('.side-bar-modal-contact-delete-btn-delete')
-export let inModal = 0;
-let modal = 0
+const contactName = document.querySelectorAll('.contact-name')
+const block_contact_btn = document.querySelector('.side-bar-block-contact-btn');
+const block_contact_modal = document.querySelector('.side-bar-modal-background-contact-block')
+const block_contact_cancel = document.querySelector('.side-bar-modal-contact-block-btn-cancel')
+const modal_block_btn = document.querySelector('.side-bar-modal-contact-block-btn-block');
+const bot_bar = document.querySelector('.bot-bar-content')
+const bot_bar_unblock = document.querySelector('.bot-bar-blocked')
 const defaultName = 'Developer'
+export let inModal = 0;
+let modal = 0;
+let isBlocked = 0;
+let name;
 
 
 modal_done_btn.addEventListener("click", editContact);
@@ -32,8 +41,15 @@ edit_contact_cancel.addEventListener("click", closeModal);
 delete_contact_btn.addEventListener("click", modalManager)
 delete_contact_cancel.addEventListener("click", closeModal)
 modal_delete_btn.addEventListener("click", deleteContact)
+block_contact_btn.addEventListener("click", modalManager)
+block_contact_cancel.addEventListener("click", closeModal)
+modal_block_btn.addEventListener("click", BlockedUsersManager)
+bot_bar_unblock.addEventListener("click", BlockedUsersManager);
 
 function modalManager() {
+    contactName.forEach(e => {
+        e.textContent = name;
+    })
     if (this === edit_contact_btn) {
         inModal = 1;
         modal = 1;
@@ -44,16 +60,49 @@ function modalManager() {
         modal = 2;
         delete_contact_modal.removeAttribute('id', 'hide');
 
-    } else {
+    } else if (this === block_contact_btn) {
+        inModal = 1;
+        modal = 3;
+        block_contact_modal.removeAttribute('id', 'hide');
+    }
+    else {
         console.log("и как ты блять это открыл");
     }
     
+}
+
+function BlockedUsersManager() {
+    if (this === bot_bar_unblock) {
+        bot_bar_unblock.setAttribute('id', 'hide');
+        bot_bar.removeAttribute('id', 'hide');
+        closeModal()
+        isBlocked = 0;
+        block_contact_btn.innerHTML = '<h2 class="side-bar-block-contact title">Block user</h2>'
+    } else {
+        if (isBlocked === 0) {
+            bot_bar.setAttribute('id', 'hide');
+            bot_bar_unblock.removeAttribute('id', 'hide');
+            closeModal()
+            isBlocked = 1;
+            block_contact_btn.innerHTML = '<h2 class="side-bar-block-contact title">Unblock user</h2>'
+        } else if (isBlocked === 1) {
+            bot_bar_unblock.setAttribute('id', 'hide');
+            bot_bar.removeAttribute('id', 'hide');
+            closeModal()
+            isBlocked = 0;
+            block_contact_btn.innerHTML = '<h2 class="side-bar-block-contact title">Block user</h2>'
+        } else {
+            console.log('братан переключи переменную isBlocked')
+        }
+    }
+
 }
 
 export function closeModal() {
     inModal = 0;
     edit_contact_modal.setAttribute('id', 'hide');
     delete_contact_modal.setAttribute('id', 'hide');
+    block_contact_modal.setAttribute('id', 'hide');
 }
 
 export function openChat() {
@@ -75,6 +124,7 @@ window.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             edit_contact_modal.setAttribute('id', 'hide');
             delete_contact_modal.setAttribute('id', 'hide');
+            block_contact_modal.setAttribute('id', 'hide');       
             console.log('выход через escape')
             inModal = 0;
         }
@@ -90,7 +140,6 @@ window.addEventListener('keydown', function(e) {
 
 
 export function editContact() {
-    let name;
     const subname = input_side_bar_modal_contact_subname ? input_side_bar_modal_contact_subname.value : '';
     
     if (input_side_bar_modal_contact.value.trim() === '') {
@@ -126,5 +175,7 @@ export function deleteContact() {
     editContact();
     closeModal();
 }
+
+
 
 editContact();

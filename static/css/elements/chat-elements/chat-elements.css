@@ -188,6 +188,13 @@
     justify-content: flex-end;
 }
 
+.side-bar-modal-contact-block-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
 .bot-bar-content {
     display: flex;
     align-items: center;
@@ -210,6 +217,18 @@
     color: var(--text-chat-item-descrip-cl);
 }
 
+.bot-bar-blocked {
+    position: absolute;
+    top: 94.5%;
+    left: 45%;
+    width: 600px;
+    color: var(--text-block-user);
+}
+
+.bot-bar-blocked:hover {
+    cursor: pointer;
+    color: var(--text-block-user-light);
+}
 /* modal */
 
 .modal {
